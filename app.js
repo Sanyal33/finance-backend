@@ -17,8 +17,6 @@ const userCtrl = require("./src/controllers/userController");
 const recordCtrl = require("./src/controllers/recordController");
 const dashCtrl = require("./src/controllers/dashboardController");
 
-// ── Init DB ──────────────────────────────────────────────────────────────
-initDB();
 
 // ── Router ───────────────────────────────────────────────────────────────
 const router = new Router();
@@ -98,6 +96,9 @@ router.get(
   authorize("admin", "analyst"),
   dashCtrl.getTrends
 );
+
+// ── Init DB ──────────────────────────────────────────────────────────────
+initDB();
 
 // ── CORS Middleware ───────────────────────────────────────────────────────
 function corsMiddleware(req, res, next) {
